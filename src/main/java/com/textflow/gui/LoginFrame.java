@@ -1,8 +1,9 @@
-package main.java.com.textflow.gui;
+package com.textflow.gui;
 
 import javax.swing.*;
 import java.awt.*;
-import main.java.com.textflow.database.DatabaseManager;
+import java.net.URI;
+import com.textflow.database.DatabaseManager;
 
 public class LoginFrame extends JFrame {
     private JTextField usernameField;
@@ -11,8 +12,8 @@ public class LoginFrame extends JFrame {
     private JButton registerButton;
     private DatabaseManager dbManager;
 
-    public LoginFrame() {
-        dbManager = new DatabaseManager();
+    public LoginFrame(DatabaseManager dbManager) {
+        this.dbManager = dbManager;
         checkDatabaseConnection();
         initComponents();
     }
@@ -64,18 +65,24 @@ public class LoginFrame extends JFrame {
 
         if (dbManager.authenticateUser(username, password)) {
             JOptionPane.showMessageDialog(this, "Login successful!");
-            // TODO: Open main application window or redirect to web editor
+            openTextEditor();
+            this.dispose(); // Close the login window
         } else {
             JOptionPane.showMessageDialog(this, "Invalid credentials. Please try again.");
+        }
+    }
+
+    private void openTextEditor() {
+        try {
+            Desktop.getDesktop().browse(new URI("http://localhost:8080/index.html"));
+        } catch (Exception e) {
+            e.printStackTrace();
+            JOptionPane.showMessageDialog(this, "Error opening text editor: " + e.getMessage());
         }
     }
 
     private void openRegisterFrame() {
         RegisterFrame registerFrame = new RegisterFrame(dbManager);
         registerFrame.setVisible(true);
-    }
-
-    public static void main(String[] args) {
-        SwingUtilities.invokeLater(() -> new LoginFrame().setVisible(true));
     }
 }

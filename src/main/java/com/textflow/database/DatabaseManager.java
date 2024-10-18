@@ -1,4 +1,4 @@
-package main.java.com.textflow.database;
+package com.textflow.database;
 
 import java.sql.*;
 import java.util.Properties;

@@ -1,8 +1,8 @@
-package main.java.com.textflow.gui;
+package com.textflow.gui;
 
 import javax.swing.*;
 import java.awt.*;
-import main.java.com.textflow.database.DatabaseManager;
+import com.textflow.database.DatabaseManager;
 
 public class RegisterFrame extends JFrame {
     private JTextField usernameField;
