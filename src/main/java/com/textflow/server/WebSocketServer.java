@@ -1,5 +1,5 @@
 package main.java.com.textflow.server;
 
-public class Websockets {
+public class WebSocketServer {
 
 }
