@@ -1,0 +1,10 @@
+com/textflow/App$FileHandler.class
+com/textflow/gui/LoginFrame.class
+com/textflow/server/WebSocketServer.class
+com/textflow/test$FileHandler.class
+com/textflow/gui/RegisterFrame.class
+com/textflow/App.class
+com/textflow/App$LoginHandler.class
+com/textflow/test.class
+com/textflow/test$LoginHandler.class
+com/textflow/database/DatabaseManager.class
